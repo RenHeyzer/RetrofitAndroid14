@@ -1,4 +1,4 @@
-package com.geeks.retrofitandroid14.models
+package com.geeks.retrofitandroid14.jsonplaceholder.models
 
 import com.google.gson.annotations.SerializedName
 

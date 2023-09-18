@@ -1,10 +1,12 @@
-package com.geeks.retrofitandroid14.data.remote
+package com.geeks.retrofitandroid14.deezer.data.remote
 
-import com.geeks.retrofitandroid14.data.remote.apiservices.PostsApiService
+import com.geeks.retrofitandroid14.deezer.data.remote.apiservices.PlaylistApiService
+import com.geeks.retrofitandroid14.jsonplaceholder.data.remote.apiservices.PostsApiService
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.create
 import java.util.concurrent.TimeUnit
 
 class RetrofitClient {
@@ -19,10 +21,10 @@ class RetrofitClient {
         .build()
 
     private val retrofit = Retrofit.Builder()
-        .baseUrl("https://jsonplaceholder.typicode.com/")
+        .baseUrl("https://deezerdevs-deezer.p.rapidapi.com/")
         .addConverterFactory(GsonConverterFactory.create())
         .client(okHttpClient)
         .build()
 
-    val postsApiService: PostsApiService =  retrofit.create(PostsApiService::class.java)
+    val playlistApiService = retrofit.create(PlaylistApiService::class.java)
 }
